@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="101" tileheight="81" nextobjectid="1">
+ <tileset firstgid="1" name="Untitled" tilewidth="101" tileheight="171" spacing="2" margin="2" tilecount="45" columns="9">
+  <image source="ortho-test1.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="46" name="metaset" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="2" columns="2">
+  <image source="../../../TileRun/Resources/tilemap/metaset.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="ground" value="YES"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="empty" value="YES"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="grass" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGFlAlQg82NQPZgwAVOGiDUACAAA=
+  </data>
+ </layer>
+ <layer name="trees4" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAXUAMJk6lMjAtMC6FPJHADop8yjQAIAAA==
+  </data>
+ </layer>
+ <layer name="trees3" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAVDCWgQgekJANerQhxAAgAA
+  </data>
+ </layer>
+ <layer name="trees2" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAXDGagTgSkBAFOI2dZAAgAA
+  </data>
+ </layer>
+</map>

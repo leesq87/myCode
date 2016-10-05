@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="4">
+ <tileset firstgid="1" name="TestDesert" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="48" columns="8">
+  <image source="tmw_desert_spacing.png" width="265" height="199"/>
+ </tileset>
+ <tileset firstgid="49" name="Meta" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="2" columns="2">
+  <image source="metaset.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="items" value="apple"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="items" value="banana"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="background" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJyTY2BgkBvFo3gUY8UA0xwXcQ==
+  </data>
+ </layer>
+ <objectgroup name="Objects"/>
+ <layer name="Items" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh+QH6gHUAA6A20AwiA0fBDAADLGACb
+  </data>
+ </layer>
+ <layer name="MetaInfo" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh+wHCgHUAAGA20AwiA0fBDAAAPtwDH
+  </data>
+ </layer>
+</map>
