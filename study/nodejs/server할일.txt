@@ -1,0 +1,8 @@
+POST 방식 처리하는 Method 만들기
+POST body에 적은 파라메터 읽어오기
+POST body랑 GET response body에 json 데이터 만들어 받고 보내기
+   json parser 이용
+POST body 에 json -> node.js 데이터 형식으로 변환하기 -> response body에 json형식으로 파싱
+헤더 이용하여 값 주고 받기
+Response에 HTTP status 값 변경해보기.
+   200 OK  -> 여러가지 다른 값 테스트
