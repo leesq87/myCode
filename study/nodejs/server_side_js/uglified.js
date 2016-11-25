@@ -1,0 +1,1 @@
+function hello(l){console.log("hi,"+l)}hello("asdf");

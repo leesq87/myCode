@@ -1,0 +1,25 @@
+doctpye html
+html
+  head
+    meta(charset='utf-8')
+    -> 메타데이터의 문자포멧을 지정하는것
+  body
+      form(action='form_receiver' method='get')
+      -> form을 전달하는것.
+      -> method = 'get'은 생략가능하고, 생략시 자동적으로 get으로 됨
+      -> method = 'post' 라고 하면은 post방식으로 된다.
+        input(type='text' name='title')
+        -> form으로써, html에서 input box를 만들어 주는것
+        ->name 지정
+        p
+          textarea(name = 'description')
+        p
+          input(type='submit')
+        -> form, 제출버튼이 나온다.
+
+
+post 방식이 get보다 조금더 안전하다.
+why? -> url상에 query string이 남지 않기 때문.
+get방식에서 query string으로 하면은 url이 길어질때 정보를 버리거나 전송이 안될 수 있기때문에
+get보다는 post로 사용하는것이 좋다.
+대규모 전송에서 post가 좋다.
