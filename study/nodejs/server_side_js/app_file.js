@@ -8,10 +8,17 @@ app.set('views','./views_file');
 app.set('view engine','jade');
 
 app.get('/topic/new',function(req,res){
-  res.render('new');
+  fs.readdir('data',function(err, files){
+    if(err){
+      console.log(err);
+      res.status(500).send('server err');
+    }
+    res.render('new',{topics:files});
+  });
 });
 
-app.get('/topic',function(req,res){
+//router에 []를 넣으면은 코드를 줄일 수 있다. (배열요소)
+app.get(['/topic','/topic/:id'],function(req,res){
   //fs.readdir(path,callback(err,files)) -> 형식
   fs.readdir('data',function(err, files){
     if(err){
@@ -19,27 +26,43 @@ app.get('/topic',function(req,res){
       res.status(500).send('server err');
     }
     //.render(file,{object:files})
-    res.render('view',{topics:files});
+    // res.render('view',{topics:files});
+
+    //id가 있는경우
+    var id = req.params.id;
+    if(id){
+      fs.readFile('data/'+id, 'utf8', function(err,data){
+        if(err){
+          console.log(err);
+          res.status(500).send('err');
+        }
+        res.render('view',{topics:files, title:id, description:data});
+      })
+    } else{
+      //id가 없을경우
+      res.render('view',{topics:files,title:'WelCome',description:'Hello Java Script for Server'});
+    }
   });
 });
 
-app.get('/topic/:id',function(req,res){
-  var id = req.params.id;
-  fs.readdir('data',function(err, files){
-    if(err){
-      console.log(err);
-      res.status(500).send('server err');
-    }
-    //.readFile(path, 'utf8',callback(err,data))
-    fs.readFile('data/'+id, 'utf8', function(err,data){
-      if(err){
-        console.log(err);
-        res.status(500).send('err');
-      }
-      res.render('view',{topics:files, title:id, description:data});
-    });
-  });
-});
+//윗부분에서 중복함수를 제거하였기에 제거
+// app.get('/topic/:id',function(req,res){
+//   var id = req.params.id;
+//   fs.readdir('data',function(err, files){
+//     if(err){
+//       console.log(err);
+//       res.status(500).send('server err');
+//     }
+//     //.readFile(path, 'utf8',callback(err,data))
+//     fs.readFile('data/'+id, 'utf8', function(err,data){
+//       if(err){
+//         console.log(err);
+//         res.status(500).send('err');
+//       }
+//       res.render('view',{topics:files, title:id, description:data});
+//     });
+//   });
+// });
 
 app.post('/topic',function(req,res){
   var title = req.body.title;
@@ -53,7 +76,10 @@ app.post('/topic',function(req,res){
       //.send로 보내면 밑의 send는 안나온다. ->> 바로 리턴시키나?
     }
     //err가 없다면
-    res.send('success');
+    // res.send('success');
+    
+    //글을 작성한 페이지에게 보내는것, re-direction
+    res.redirect('/topic/'+title);
   });
 });
 
